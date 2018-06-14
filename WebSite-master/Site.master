@@ -44,7 +44,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/" style="width:300px;height:300px;"><asp:Image ImageUrl="~/Images/filmax.jpg" runat="server" Height="213px" Width="288px"  /></a></p>
+                    <a runat="server" href="~/" style="width:300px;height:300px;"><asp:Image ImageUrl="~/Images/logodmx.png" runat="server" Height="213px" Width="288px"  /></a></p>
             </div>
             <div class="float-right">
                 <section id="login">

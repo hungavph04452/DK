@@ -9,60 +9,91 @@
 <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaKH" DataSourceID="SqlDataSource1">
     <EditItemTemplate>
         MaKH:
-        <asp:DynamicControl ID="MaKHDynamicControl" runat="server" DataField="MaKH" Mode="ReadOnly" />
+        <asp:Label ID="MaKHLabel1" runat="server" Text='<%# Eval("MaKH") %>' />
         <br />
         TenKH:
-        <asp:DynamicControl ID="TenKHDynamicControl" runat="server" DataField="TenKH" Mode="Edit" />
+        <asp:TextBox ID="TenKHTextBox" runat="server" Text='<%# Bind("TenKH") %>' />
+        <br />
+        DiaChi:
+        <asp:TextBox ID="DiaChiTextBox" runat="server" Text='<%# Bind("DiaChi") %>' />
+        <br />
+        SoDT:
+        <asp:TextBox ID="SoDTTextBox" runat="server" Text='<%# Bind("SoDT") %>' />
+        <br />
+        GioiTinh:
+        <asp:TextBox ID="GioiTinhTextBox" runat="server" Text='<%# Bind("GioiTinh") %>' />
         <br />
         Email:
-        <asp:DynamicControl ID="EmailDynamicControl" runat="server" DataField="Email" Mode="Edit" />
+        <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
         <br />
-        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" ValidationGroup="Insert" />
+        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
         &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
     </EditItemTemplate>
     <InsertItemTemplate>
         MaKH:
-        <asp:DynamicControl ID="MaKHDynamicControl" runat="server" DataField="MaKH" Mode="Insert" ValidationGroup="Insert" />
+        <asp:TextBox ID="MaKHTextBox" runat="server" Text='<%# Bind("MaKH") %>' />
         <br />
         TenKH:
-        <asp:DynamicControl ID="TenKHDynamicControl" runat="server" DataField="TenKH" Mode="Insert" ValidationGroup="Insert" />
+        <asp:TextBox ID="TenKHTextBox" runat="server" Text='<%# Bind("TenKH") %>' />
+        <br />
+        DiaChi:
+        <asp:TextBox ID="DiaChiTextBox" runat="server" Text='<%# Bind("DiaChi") %>' />
+        <br />
+        SoDT:
+        <asp:TextBox ID="SoDTTextBox" runat="server" Text='<%# Bind("SoDT") %>' />
+        <br />
+        GioiTinh:
+        <asp:TextBox ID="GioiTinhTextBox" runat="server" Text='<%# Bind("GioiTinh") %>' />
         <br />
         Email:
-        <asp:DynamicControl ID="EmailDynamicControl" runat="server" DataField="Email" Mode="Insert" ValidationGroup="Insert" />
+        <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
         <br />
-        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" ValidationGroup="Insert" />
+        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
         &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
     </InsertItemTemplate>
     <ItemTemplate>
         MaKH:
-        <asp:DynamicControl ID="MaKHDynamicControl" runat="server" DataField="MaKH" Mode="ReadOnly" />
+        <asp:Label ID="MaKHLabel" runat="server" Text='<%# Eval("MaKH") %>' />
         <br />
         TenKH:
-        <asp:DynamicControl ID="TenKHDynamicControl" runat="server" DataField="TenKH" Mode="ReadOnly" />
+        <asp:Label ID="TenKHLabel" runat="server" Text='<%# Bind("TenKH") %>' />
+        <br />
+        DiaChi:
+        <asp:Label ID="DiaChiLabel" runat="server" Text='<%# Bind("DiaChi") %>' />
+        <br />
+        SoDT:
+        <asp:Label ID="SoDTLabel" runat="server" Text='<%# Bind("SoDT") %>' />
+        <br />
+        GioiTinh:
+        <asp:Label ID="GioiTinhLabel" runat="server" Text='<%# Bind("GioiTinh") %>' />
         <br />
         Email:
-        <asp:DynamicControl ID="EmailDynamicControl" runat="server" DataField="Email" Mode="ReadOnly" />
+        <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' />
         <br />
-
         <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
         &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
         &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
-
     </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [MaKH], [TenKH], [Email] FROM [KhachHang]" DeleteCommand="DELETE FROM [KhachHang] WHERE [MaKH] = @MaKH" InsertCommand="INSERT INTO [KhachHang] ([MaKH], [TenKH], [Email]) VALUES (@MaKH, @TenKH, @Email)" UpdateCommand="UPDATE [KhachHang] SET [TenKH] = @TenKH, [Email] = @Email WHERE [MaKH] = @MaKH">
+&nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [KhachHang] WHERE [MaKH] = @MaKH" InsertCommand="INSERT INTO [KhachHang] ([MaKH], [TenKH], [DiaChi], [SoDT], [GioiTinh], [Email]) VALUES (@MaKH, @TenKH, @DiaChi, @SoDT, @GioiTinh, @Email)" SelectCommand="SELECT [MaKH], [TenKH], [DiaChi], [SoDT], [GioiTinh], [Email] FROM [KhachHang]" UpdateCommand="UPDATE [KhachHang] SET [TenKH] = @TenKH, [DiaChi] = @DiaChi, [SoDT] = @SoDT, [GioiTinh] = @GioiTinh, [Email] = @Email WHERE [MaKH] = @MaKH">
         <DeleteParameters>
-            <asp:Parameter Name="MaKH" Type="Int32" />
+            <asp:Parameter Name="MaKH" Type="String" />
         </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter Name="MaKH" Type="Int32" />
+            <asp:Parameter Name="MaKH" Type="String" />
             <asp:Parameter Name="TenKH" Type="String" />
+            <asp:Parameter Name="DiaChi" Type="String" />
+            <asp:Parameter Name="SoDT" Type="String" />
+            <asp:Parameter Name="GioiTinh" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="TenKH" Type="String" />
+            <asp:Parameter Name="DiaChi" Type="String" />
+            <asp:Parameter Name="SoDT" Type="String" />
+            <asp:Parameter Name="GioiTinh" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="MaKH" Type="Int32" />
+            <asp:Parameter Name="MaKH" Type="String" />
         </UpdateParameters>
     </asp:SqlDataSource>
 </asp:Content>
