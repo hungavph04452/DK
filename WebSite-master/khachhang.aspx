@@ -44,8 +44,26 @@
         <asp:DynamicControl ID="EmailDynamicControl" runat="server" DataField="Email" Mode="ReadOnly" />
         <br />
 
+        <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+        &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+        &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+
     </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [MaKH], [TenKH], [Email] FROM [KhachHang]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [MaKH], [TenKH], [Email] FROM [KhachHang]" DeleteCommand="DELETE FROM [KhachHang] WHERE [MaKH] = @MaKH" InsertCommand="INSERT INTO [KhachHang] ([MaKH], [TenKH], [Email]) VALUES (@MaKH, @TenKH, @Email)" UpdateCommand="UPDATE [KhachHang] SET [TenKH] = @TenKH, [Email] = @Email WHERE [MaKH] = @MaKH">
+        <DeleteParameters>
+            <asp:Parameter Name="MaKH" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="MaKH" Type="Int32" />
+            <asp:Parameter Name="TenKH" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="TenKH" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="MaKH" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 </asp:Content>
 

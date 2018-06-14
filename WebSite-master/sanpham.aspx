@@ -81,9 +81,35 @@
                 <asp:DynamicControl ID="HinhAnhDynamicControl" runat="server" DataField="HinhAnh" Mode="ReadOnly" />
                 <br />
 
+                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+
             </ItemTemplate>
         </asp:FormView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [MaSP], [MaDM_SP], [Donvi], [TenSP], [GiaSP], [ChuThich], [HinhAnh] FROM [SanPham]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [MaSP], [MaDM_SP], [Donvi], [TenSP], [GiaSP], [ChuThich], [HinhAnh] FROM [SanPham]" DeleteCommand="DELETE FROM [SanPham] WHERE [MaSP] = @MaSP" InsertCommand="INSERT INTO [SanPham] ([MaSP], [MaDM_SP], [Donvi], [TenSP], [GiaSP], [ChuThich], [HinhAnh]) VALUES (@MaSP, @MaDM_SP, @Donvi, @TenSP, @GiaSP, @ChuThich, @HinhAnh)" UpdateCommand="UPDATE [SanPham] SET [MaDM_SP] = @MaDM_SP, [Donvi] = @Donvi, [TenSP] = @TenSP, [GiaSP] = @GiaSP, [ChuThich] = @ChuThich, [HinhAnh] = @HinhAnh WHERE [MaSP] = @MaSP">
+            <DeleteParameters>
+                <asp:Parameter Name="MaSP" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="MaSP" Type="Int32" />
+                <asp:Parameter Name="MaDM_SP" Type="Int32" />
+                <asp:Parameter Name="Donvi" Type="String" />
+                <asp:Parameter Name="TenSP" Type="String" />
+                <asp:Parameter Name="GiaSP" Type="Decimal" />
+                <asp:Parameter Name="ChuThich" Type="String" />
+                <asp:Parameter Name="HinhAnh" Type="Object" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="MaDM_SP" Type="Int32" />
+                <asp:Parameter Name="Donvi" Type="String" />
+                <asp:Parameter Name="TenSP" Type="String" />
+                <asp:Parameter Name="GiaSP" Type="Decimal" />
+                <asp:Parameter Name="ChuThich" Type="String" />
+                <asp:Parameter Name="HinhAnh" Type="Object" />
+                <asp:Parameter Name="MaSP" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </p>
 </asp:Content>
 
