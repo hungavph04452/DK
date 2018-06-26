@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h1>Sản phẩm</h1>
+    <h1>Sản phẩm </h1>
     <p style="color:#b200ff">
         <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaSP" DataSourceID="SqlDataSource1">
             <EditItemTemplate>
