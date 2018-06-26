@@ -5,7 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h1>Hóa đơn</h1> 
+    <h1 style="color:blue">Hóa đơn</h1>
+    
+    <div style="color:blue">
     <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaHD" DataSourceID="SqlDataSource1">
         <EditItemTemplate>
             MaHD:
@@ -48,8 +50,11 @@
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </ItemTemplate>
     </asp:FormView>
+    </div>
+    <div style="color:blue">
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" DataSourceID="SqlDataSource1">
     </asp:GridView>
+    </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [HoaDon] WHERE [MaHD] = @MaHD" InsertCommand="INSERT INTO [HoaDon] ([MaHD], [NgayLap], [MaKH]) VALUES (@MaHD, @NgayLap, @MaKH)" SelectCommand="SELECT [MaHD], [NgayLap], [MaKH] FROM [HoaDon]" UpdateCommand="UPDATE [HoaDon] SET [NgayLap] = @NgayLap, [MaKH] = @MaKH WHERE [MaHD] = @MaHD">
         <DeleteParameters>
             <asp:Parameter Name="MaHD" Type="String" />
