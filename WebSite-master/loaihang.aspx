@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
    
-    <h1> <div style="color:#ff6a00"> Loại hàng  </div></h1>
+    <h1> <div style="color:#ce00ff"> Loại hàng  </div></h1>
    
         <div style="color:#b6ff00">
             <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaLSP" DataSourceID="SqlDataSource1">
